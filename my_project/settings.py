@@ -84,6 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'hafsah_traveldb',
+        'CLIENT': {
+            'host': 'mongodb://localhost:27017',}
     }
 }
 
