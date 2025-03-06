@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "manage.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "manage.py"
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "my_project.settings",
+      "PYTHON_VERSION": "3.11"
+    }
+  }
+  
