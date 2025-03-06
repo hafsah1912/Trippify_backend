@@ -28,10 +28,18 @@ import os
 # Connect to MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 
-db = client['hafsah_traveldb']
+# db = client['hafsah_traveldb']
+db = client['Tourism']
+
+# user_collection = db['user']
+# collection = db['newtourpackages']
+# categories_collection = db['categories']
+# wishlist_collection  = db['wishlist']
+# cart_collection  = db['cart']
+# bookings_collection = db['bookings']
 
 user_collection = db['user']
-collection = db['newtourpackages']
+collection = db['tourpackages']
 categories_collection = db['categories']
 wishlist_collection  = db['wishlist']
 cart_collection  = db['cart']
@@ -89,7 +97,7 @@ def login(request):
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=405)
     
-# @csrf_exempt
+@csrf_exempt
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
@@ -138,8 +146,35 @@ def register(request):
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
 
+# from django.views.decorators.csrf import csrf_exempt
+# from django.http import JsonResponse
+# import json
+# from django.contrib.auth.models import User
 
-@csrf_exempt
+# @csrf_exempt  # Disable CSRF for this endpoint (for testing)
+# def register(request):
+#     if request.method == "POST":
+#         try:
+#             data = json.loads(request.body)
+#             username = data.get("username")
+#             password = data.get("password")
+
+#             if not username or not password:
+#                 return JsonResponse({"error": "Username and password are required"}, status=400)
+
+#             if User.objects.filter(username=username).exists():
+#                 return JsonResponse({"error": "Username already taken"}, status=400)
+
+#             user = User.objects.create_user(username=username, password=password)
+#             user.save()
+
+#             return JsonResponse({"message": "User registered successfully"}, status=201)
+
+#         except json.JSONDecodeError:
+#             return JsonResponse({"error": "Invalid JSON format"}, status=400)
+    
+#     return JsonResponse({"error": "Invalid request method"}, status=405)
+
 def change_password(request):
     if request.method == 'POST':
         try:
