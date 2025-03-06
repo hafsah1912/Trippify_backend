@@ -28,7 +28,7 @@ urlpatterns = [
     path('api/remove_from_wishlist/', remove_from_wishlist, name='remove_from_wishlist'),
     
     #booking
-    path('api/book_package/<str:username>', book_package, name='book_package'),
+    # path('api/book_package/<str:username>', book_package, name='book_package'),
     path('api/get_bookings/', get_bookings, name='get_bookings'),  
     path('api/book_package/', book_package, name='book_package'),
     
